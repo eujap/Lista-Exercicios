@@ -1,8 +1,8 @@
-
 def cadastros():
+    
     nome=''
-    horas_tabalhadas_mes=0
-    turno_de_trabalho=0
+    horas_tabalhadas_mes = 0
+    turno_de_trabalho=''
     ocupacao=''
 
     while True:
@@ -16,17 +16,34 @@ def cadastros():
             continua = ''
             return False
   
-#    print(colaboradores)
 
-#def valor_hora_trabalhada(ocupacao, turno_de_trabalho, valor_hora_trabalhada ):
-#    valor_hora_trabalhada = float () 
 
+def valor_hora_trabalhada():
+    ocupacao = ''
+    turno_de_trabalho = ''
+    valor_base = 1_320.00
+    
+    if ocupacao == "G" and (turno_de_trabalho == "V" or "M") :
+            valor_hora_trabalhada = float(valor_base*0.15)
+    elif ocupacao == "G" and (turno_de_trabalho == "N") :      
+            valor_hora_trabalhada = (valor_base*0.10)
+    elif ocupacao == "O" and (turno_de_trabalho == "N") :
+            valor_hora_trabalhada = (valor_base*0.09)
+    elif ocupacao == "O" and (turno_de_trabalho == "V" or "M") :
+            valor_hora_trabalhada = (valor_base*0.14)
+
+ 
 def calcular_salario():
-    horas_tabalhadas_mes = float(input("Numeros de Horas Trabalhadas: "))
-    valor_hora_trabalhada = float(input("valor_hora_trabalhada"))
+    horas_tabalhadas_mes = float(horas_tabalhadas_mes())
+    valor_hora_trabalhada = float(valor_hora_trabalhada())
     if horas_tabalhadas_mes:
         salario=horas_tabalhadas_mes*valor_hora_trabalhada
     return salario
 
-cadastros()  
+cadastros()
+print(cadastros)
+valor_hora_trabalhada()
+print(valor_hora_trabalhada())
 calcular_salario()
+print(calcular_salario())
+
