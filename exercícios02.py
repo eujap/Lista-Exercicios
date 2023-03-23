@@ -20,18 +20,23 @@ def buscar_maior_quantidade(opcoes):
         
     return opcoes[itens.index(max(itens))]
 
+def buscar_maior(itens):
+    return max(itens, key=itens.get)
 
 
-elevadores = [ "A", "B", "C"]
-turnos = ["M", "V", "N"]
-respostas = []
+def buscar_menor(itens):
+    return min(itens, key=itens.get)
+
+elevadores = { "A":0 , "B":0 , "C":0 }
+turnos = {"M":0, "V":0, "N":0}
+
 
 while (True):
-    elevador = validar("informe o elevador mais utilizado A, B ou C?  ", elevadores)
-    turno = validar('Informe o turno mais utilizado:( M, V, N)', turnos)
-
-    respostas.append([elevador, turnos])
-
+    elevador = validar("informe o elevador mais utilizado A, B ou C?  ", elevadores.keys)
+    elevadores[elevador] +=1
+    turno = validar('Informe o turno mais utilizado:( M, V, N)', turnos.keys)
+    turnos[turno] +=1
+    
     while True:
         continua = str(input("Deseja continuar? S-Sim e N-Não  ")).upper()[0]
         if continua in 'SN':
@@ -40,8 +45,12 @@ while (True):
     if continua == "N":
         break
 
-buscar_maior_quantidade(elevadores)
-print("O elevador mais utilizado foi o elevador", buscar_maior_quantidade(elevadores))
-buscar_maior_quantidade(turnos)
-print("O turno mais utilizado foi i turno  ", buscar_maior_quantidade(turnos))
+buscar_maior(elevadores)
+buscar_maior(turnos)
+print("O elevador mais utilizado foi o elevador", buscar_maior(elevadores))
+print("O turno mais utilizado foi o turno  ", buscar_maior(turnos))
+maior_turno = turnos[buscar_maior(turnos)]
+menor_turno = turnos[buscar_menor(turnos)]
 
+diferenca = (maior_turno / menor_turno) *100 
+print(diferenca)
