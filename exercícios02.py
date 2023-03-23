@@ -9,9 +9,13 @@ def validar(msg, validos):
 
 def buscar_maior_quantidade(opcoes):
     itens = []
+    for opcao in opcoes:
+        itens.append(0)
+
     for resposta in respostas:
         for opcao in opcoes:
-            itens[opcao.index(opcao)] +=1
+            if (opcao in resposta):
+                itens[opcao.index(opcao)] +=1
    
         
     return opcoes[itens.index(max(itens))]
