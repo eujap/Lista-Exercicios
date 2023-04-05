@@ -12,6 +12,8 @@ with open("exame.txt") as arquivo:
         resultado = "reprovado.txt"
 
     with open( resultado, "w") as resultado:
+        legenda = lista[0] + "," + str(media_final) + "por exame"
+        resultado.write(legenda)
            
     print(media_final)
 
