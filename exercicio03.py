@@ -6,6 +6,7 @@ def salvar_notas ():
         arquivo.write(lista)
         arquivo.write("\n")
         
+    arquivo.close()    
 
 
 while (continua != "N"):
